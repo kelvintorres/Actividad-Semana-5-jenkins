@@ -1,0 +1,24 @@
+pipeline {
+  agent any
+  stages {
+    stage('') {
+      steps {
+        sh '''- name: run compose
+  hosts: all
+  tasks:
+    - name: Copy data
+      copy:
+        src: ./
+        dest: app
+    - name: Run "docker-compose up"
+      docker_compose:
+        project_src: app
+        state: present
+      register: output
+    - debug:
+        var: output'''
+      }
+    }
+
+  }
+}
