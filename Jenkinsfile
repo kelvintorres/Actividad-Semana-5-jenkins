@@ -1,24 +1,26 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh '''- name: run compose
-  hosts: all
-  tasks:
-    - name: Copy data
-      copy:
-        src: ./
-        dest: app
-    - name: Run "docker-compose up"
-      docker_compose:
-        project_src: app
-        state: present
-      register: output
-    - debug:
-        var: output'''
+        sh ''' pipeline {
+  agent any
+  
+  stages {
+    stage(\'Build\') {
+      steps {
+        // Clonar el repositorio de Git (puedes personalizarlo según tus necesidades)
+        git \'https://github.com/kelvintorres/Actividad-Semana-5-jenkins.git\'
+        
+        // Ejecutar el archivo de docker-compose
+        sh \'docker-compose up -d\'
       }
     }
-
   }
 }
+'''
+        }
+      }
+
+    }
+  }
