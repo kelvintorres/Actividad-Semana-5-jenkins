@@ -5,6 +5,7 @@ pipeline {
         stage('prueba') {
             steps {
                 sh 'sudo docker ps -a'
+                sh 'ls'
             }
         }
     }
