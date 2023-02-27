@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('probando') {
+    stage('jenkins') {
       steps {
         sh 'docker-compose up -d --build'
       }
