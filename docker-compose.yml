@@ -31,16 +31,16 @@ services:
        
       - ./database-seed.sql:/docker-entrypoint-initdb.d/database-seed.sql
 
-   
-  pgadmin-compose:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "kelvin@example.com"
-      PGADMIN_DEFAULT_PASSWORD: "kelvin123"
-    ports:
-      - "16543:80"
-    depends_on:
-      - postgres
+
+  # pgadmin-compose:
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: "kelvin@example.com"
+  #     PGADMIN_DEFAULT_PASSWORD: "kelvin123"
+  #   ports:
+  #     - "16543:80"
+  #   depends_on:
+  #     - postgres
 
 
 
